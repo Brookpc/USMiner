@@ -24,7 +24,7 @@ category = Category.MINING,
 description = "Ultimate Scape 2 - Power Miner",
 name = "USPMiner by Ark",
 servers = { "Ultimate Scape" },
-version = 1.0)
+version = 2.0)
 
 public class USPMiner extends Script implements Paintable {
 
