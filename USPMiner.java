@@ -34,15 +34,18 @@ public class USPMiner extends Script implements Paintable {
 
 	private final Color color1 = new Color(100,255,0);
 	private final Font font2 = new Font( "Arial", 0, 14 );
-	
+
 	public static int startExp;
 	public static int expGained;
 
-	public boolean onExecute() {
+	public static Image img1;
+	/********************************************************************************************************************************************/
 
+	public boolean onExecute() {
+		img1 = getImage( "http://i.imgur.com/0vKVzVq.png" );
 		startTime = System.currentTimeMillis();
 		startExp = Skill.MINING.getExperience();
-		
+
 		strategies.add(new Relog());
 		strategies.add(new Tele());
 		strategies.add(new Mine());
@@ -52,35 +55,46 @@ public class USPMiner extends Script implements Paintable {
 
 		return true;
 	}
-	
-/********************************************************************************************************************************************/
+	/***************************************************************************************************************************************/
+	public static Image getImage( String url )
+	{
+		try {
+			return ImageIO.read( new URL( url ) );
+		} catch( IOException e ) {
+			return null;
+		}
+	}
+	/***************************************************************************************************************************************/
+
+	/********************************************************************************************************************************************/
 	@Override
 	public void paint(Graphics arg0) {
 		final int expGained = Skill.MINING.getExperience() - startExp;
-		
+
 		Graphics2D g = (Graphics2D) arg0;
+		g.drawImage(img1, 4, 23, null);
 		g.setFont(font2);
 		g.setColor(color1);
 		g.drawString(addDecimals(expGained), 91, 62);
-		g.drawString(runTime(startTime), 91, 91);
+		g.drawString(runTime(startTime), 91,75);
 
 
 	}
-	
-	public String addDecimals(int i)
-    {
-        DecimalFormat x = new DecimalFormat("#,###");
-       
 
-    return "" + x.format(i);
-    }
-/********************************************************************************************************************************************/
-	
+	public String addDecimals(int i)
+	{
+		DecimalFormat x = new DecimalFormat("#,###");
+
+
+		return "" + x.format(i);
+	}
+	/********************************************************************************************************************************************/
+
 	public static boolean isLoggedIn() {
 		return SceneObjects.getNearest().length > 0;
 	}
-	
-/********************************************************************************************************************************************/
+
+	/********************************************************************************************************************************************/
 	public static String runTime(long i) {
 
 		DecimalFormat nf = new DecimalFormat("00");

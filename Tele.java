@@ -11,8 +11,8 @@ public class Tele implements Strategy
 	@Override
 	public boolean activate() {
 		int distance;
-		distance = (int) new Tile(2551, 3554).distanceTo();
-		if (distance > 100) {
+		distance = (int) new Tile(2382, 4741).distanceTo();
+		if (distance > 50) {
 			return true;
 		}
 		return false;
