@@ -65,8 +65,6 @@ public class Mine implements Strategy {
 		if( curLvl >= 85) {
 			rock = SceneObjects.getClosest(2106);
 			rockActCode = 2106;
-			
-			
 		}// Rune
 
 		

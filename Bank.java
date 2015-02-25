@@ -51,7 +51,7 @@ public class Bank implements Strategy{
 						Time.sleep(200);
 
 					} catch(Exception e) {
-						//catch null pointer exceptions
+						System.out.println(e.getMessage());
 					}      
 				}
 
